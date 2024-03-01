@@ -6,6 +6,7 @@ window.addEventListener("load", function () {
   elemekFormázása();
   esemenyKezeles();
   esemenyKezeles2();
+  esemenyKezeles4();
 });
 
 function elemekElerese1() {
@@ -50,10 +51,25 @@ function esemenyKezeles() {
   });
 }
 function esemenyKezeles2() {
-  const feladat6_ELEM = document.querySelector(".feladat");
+  const feladat6_ELEM = document.querySelectorAll(".feladat")[0];
   feladat6_ELEM.innerHTML = "<button>Nyomd meg</button>";
   const gomb_ELEM = document.querySelector(".feladat button");
   gomb_ELEM.addEventListener("click", function () {
     feladat6_ELEM.innerHTML += `<div><h1>KACHOW</h1><img id="kep" src="./kep.jpg" alt="bajnok"></div>`;
+    const KEP = document.querySelector(".feladat #kep");
+    console.log(KEP);
+    KEP.addEventListener("mouseover", function () {
+      KEP.classList.add("kisebb");
+    });
   });
+}
+function esemenyKezeles4() {
+  const tarolo_ELEM = document.querySelectorAll(".tarolo");
+  const elemek_ELEM = document.querySelectorAll(".elem");
+  const eredmeny_ELEM = document.querySelector(".megjelenito");
+  for (let index = 0; index < elemek_ELEM.length; index++) {
+    elemek_ELEM[index].addEventListener("click", function () {
+      eredmeny_ELEM.innerHTML = elemek_ELEM[index].innerHTML;
+    });
+  }
 }
